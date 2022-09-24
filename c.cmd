@@ -1,0 +1,2 @@
+D:
+python szotar.py
