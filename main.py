@@ -57,6 +57,7 @@ def wordsSheet(sheet):
     records_df = records_df.iloc[1:]
     words_array = records_df["word"].to_numpy()
     meaning_array = records_df["meaning"].to_numpy()
+    help_array = records_df["help"].to_numpy()
     # create numbers
     numbersQuiz = list(range(0, words_array.size))
     # check the length of the array than pick up 3 random samples
@@ -70,4 +71,15 @@ def wordsSheet(sheet):
     # import it pandas DF
     wordsStat = pd.DataFrame(stats_data, columns = ["Word", "OK", "NOK"])
     wordsStat = wordsStat.iloc[1:,:] # delete first row
-    return records_df, wordsStat, words_array, meaning_array, numbersQuiz, stats_data, stat
+    return records_df, wordsStat, words_array, meaning_array, numbersQuiz, stats_data, stat, help_array
+    
+def questions(words_array, meaning_array, help_array, numbersQuiz, length=1):
+    quizNumbers = random.choices(numbersQuiz, k=length)
+    quizQ = []
+    remainMeanings = meaning_array.copy()
+    remainMeanings = remainMeanings.tolist()
+    for i in quizNumbers:
+        #print(words_array[i], meaning_array[i])
+        quizQ.append([words_array[i],meaning_array[i], help_array[i]])
+        remainMeanings.remove(meaning_array[i])
+    return quizQ, remainMeanings
