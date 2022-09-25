@@ -27,7 +27,7 @@ def googleDocReadIn():
     client = gspread.authorize(creds)
 
     # get the instance of the Spreadsheet
-    sheet = client.open('DICTIONARY / SZOTAR')
+    sheet = client.open('DICTIONARY / SZOTAR') # name of the spreadsheat file
     return sheet
     
 def wordsSheet(sheet):
