@@ -16,17 +16,12 @@ import webbrowser
 import datetime
 
 
-def hell(x):
-	print(x+111)
-	return 111
-
 def googleDocReadIn():
     ### Read-in google doc
-
-    scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
+    scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive'] # link of my google sheet
 
     # add credentials to the account
-    creds = ServiceAccountCredentials.from_json_keyfile_name('szotar-362715-b509492797b1.json', scope)
+    creds = ServiceAccountCredentials.from_json_keyfile_name('szotar-362715-b509492797b1.json', scope) # json file contains my own key
 
     # authorize the clientsheet 
     client = gspread.authorize(creds)
