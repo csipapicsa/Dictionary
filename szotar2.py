@@ -93,7 +93,7 @@ wrongAnswersDict = {}
 goodAnswersDict = {}
 
 quizF(quizQ, possibleWrongAnswers, numberWrongAnswers)
-
+print("### Write stat in the sheet")
 # append wrong and good answers
 for i in wrongAnswersDict:
     wordsStat = wordsStat.append({'Word': i, "NOK":wrongAnswersDict[i], "OK":"" }, ignore_index=True)
@@ -102,3 +102,5 @@ for i in goodAnswersDict:
 
 # update the sheet
 stat.update([wordsStat.columns.values.tolist()] + wordsStat.values.tolist())
+
+print("### Write DONE")

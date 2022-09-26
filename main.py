@@ -48,7 +48,7 @@ def wordsSheet(sheet):
     
     # get the records, invert it, etc
     records_df = pd.DataFrame.from_dict(records_data_new)
-    records_df.columns = ["skip", "word", "meaning", "type", "help", "counter"]
+    records_df.columns = ["skip", "word", "meaning", "type", "help", "word freq", "counter"]
     records_df = records_df.iloc[1:]
     words_array = records_df["word"].to_numpy()
     meaning_array = records_df["meaning"].to_numpy()
