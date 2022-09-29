@@ -129,7 +129,7 @@ def deleteKnownWords(wordsStat, words_array, meaning_array, help_array, days=31)
         # since the dates are continiously appended we dont have to sort them. 
         check = sum(wordStatDict[i][-3:])/3
         if check+(31*24*3600)>datetime.datetime.now().timestamp():
-            print("Known word ## ", i)
+            # print("Known word ## ", i)
             knownWords.append(i)
             
     words_array_n, meaning_array_n, help_array_n = words_array.copy(), meaning_array.copy(), help_array.copy()

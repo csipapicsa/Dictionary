@@ -21,8 +21,7 @@ In case of wrong answer:
 
 
 ### TODO:
-  - Skip learned words by statistics
-  - Handle empty meaning and help cells
+  - Wrong user input (letter or wrong number, etc) 
   - Handle if the sheet is not available (no internet, make local copy, etc)
   
   tags: google sheet, python, dictionary, word teacher, learning
