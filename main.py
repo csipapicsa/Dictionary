@@ -145,3 +145,15 @@ def deleteKnownWords(wordsStat, words_array, meaning_array, help_array, days=31)
     numbersQuiz = list(range(0, len(words_array_n)))
             
     return words_array_n, meaning_array_n, help_array_n, numbersQuiz
+    
+# user input validator
+def userInputValidator(maxN):
+    while True:
+        try:
+            number = int(input())
+            if number < 1 or number > maxN:
+                raise ValueError #this will send it to the print message and back to the input option
+            break
+        except ValueError:
+            print("Invalid input")
+    return number

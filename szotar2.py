@@ -72,16 +72,14 @@ def answeringF(dicT, goodAnswer, helP, question):
     # print the answers
     for i in dicT:
         print(i," - ", dicT[i])
-    try:
-        ans = int(input())
-    except KeyError:
-        print("::: again:::: ")
+    # answer
+    ans = mm.userInputValidator(numberWrongAnswers+1)
     if goodAnswerChecker(dicT, ans, goodAnswer): #if the answer is good
         goodAnswerDictWrite(question)
     else:
         # wrong answer, print help
         print("### Wrong answer, help: ", helP)
-        ans = int(input())
+        ans = mm.userInputValidator(numberWrongAnswers+1)
         if goodAnswerChecker(dicT, ans, goodAnswer):
             goodAnswerDictWrite(question)
         if goodAnswerChecker(dicT, ans, goodAnswer) == False:

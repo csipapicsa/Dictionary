@@ -21,7 +21,6 @@ In case of wrong answer:
 
 
 ### TODO:
-  - Wrong user input (letter or wrong number, etc) 
   - Handle if the sheet is not available (no internet, make local copy, etc)
   
   tags: google sheet, python, dictionary, word teacher, learning
