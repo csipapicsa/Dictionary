@@ -21,6 +21,7 @@ In case of wrong answer:
 
 
 ### TODO:
+  - After a help sentence arises add NOK to the statistics
   - Handle if the sheet is not available (no internet, make local copy, etc)
   
   tags: google sheet, python, dictionary, word teacher, learning

@@ -92,12 +92,19 @@ def emptyCellsHandler(words_array, meaning_array, help_array):
 
  
 def questions(words_array, meaning_array, help_array, numbersQuiz, length=1):
-    quizNumbers = random.choices(numbersQuiz, k=length)
+    # quizNumbers = random.choices(list(set(numbersQuiz)), k=length) # this is wrong, gives back duplicated values. 
+    random.shuffle(numbersQuiz)
+    quizNumbers = numbersQuiz[0:length]
     quizQ = []
     remainMeanings = meaning_array.copy()
-    ### remainMeanings = remainMeanings.tolist()
+    # remainMeanings = remainMeanings.tolist()
+    # print("INFO: Length of the meaning array ", len(remainMeanings))
+    #print("INFO: SET of the meaning array ", len(set(remainMeanings)))
+    #print("INFO: ",quizNumbers)
+    
     for i in quizNumbers:
         #print(words_array[i], meaning_array[i])
+        # print(i, " -" ,meaning_array[i])
         quizQ.append([words_array[i],meaning_array[i], help_array[i]])
         remainMeanings.remove(meaning_array[i])
     return quizQ, remainMeanings
@@ -147,6 +154,7 @@ def deleteKnownWords(wordsStat, words_array, meaning_array, help_array, days=31)
     
     print("Number of known words: ",  numberOfKnownWords, "\n Number of unknown words: ", len(words_array)-numberOfKnownWords)   
     numbersQuiz = list(range(0, len(words_array_n)))
+    # print("Number of quiz is : ", numbersQuiz)
             
     return words_array_n, meaning_array_n, help_array_n, numbersQuiz
     

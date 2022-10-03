@@ -27,7 +27,8 @@ def quizF (quizQ, possibleWrongAnswers,numberWrongAnswers):
         helP = i[2]
         # define x wrong answer
         # print("-------- quizF ", question, goodAnswer)
-        wrongAnswers = mm.random.choices(possibleWrongAnswers, k=numberWrongAnswers)
+        mm.random.shuffle(possibleWrongAnswers)
+        wrongAnswers = possibleWrongAnswers[0:numberWrongAnswers]
         mapAnswers(question, goodAnswer, helP, wrongAnswers, numberWrongAnswers)
         # print(question, goodAnswer, " ::: wrong ones ::: ", wrongAnswers)
         
