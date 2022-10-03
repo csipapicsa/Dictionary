@@ -6,9 +6,9 @@ print("*** get the sheet")
 sheet = mm.googleDocReadIn()
 # user inputs - how many questions, how many possible answers
 print(" How many words? ")
-numberOfQuestions = int(input())
+numberOfQuestions = mm.userInputValidator(100)
 print(" how many possible answers? ")
-numberWrongAnswers = int(input())
+numberWrongAnswers = mm.userInputValidator(100)
 print("*** making the quiz")
 records_df, wordsStat, words_array, meaning_array, stats_data, stat, help_array = mm.wordsSheet(sheet)
 # handle empty cells in meaning and help arrays

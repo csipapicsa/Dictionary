@@ -133,6 +133,7 @@ def deleteKnownWords(wordsStat, words_array, meaning_array, help_array, days=31)
             knownWords.append(i)
             
     words_array_n, meaning_array_n, help_array_n = words_array.copy(), meaning_array.copy(), help_array.copy()
+    numberOfKnownWords = 0
     for w, m, h in zip(words_array, meaning_array, help_array):
         if w in knownWords:
             #words_array.remove(w)
@@ -142,12 +143,16 @@ def deleteKnownWords(wordsStat, words_array, meaning_array, help_array, days=31)
             meaning_array_n.remove(m)
             help_array_n.remove(h)
             
+            numberOfKnownWords += 1
+    
+    print("Number of known words: ",  numberOfKnownWords, "\n Number of unknown words: ", len(words_array)-numberOfKnownWords)   
     numbersQuiz = list(range(0, len(words_array_n)))
             
     return words_array_n, meaning_array_n, help_array_n, numbersQuiz
     
 # user input validator
 def userInputValidator(maxN):
+    ''' Validate user input '''
     while True:
         try:
             number = int(input())
@@ -155,5 +160,5 @@ def userInputValidator(maxN):
                 raise ValueError #this will send it to the print message and back to the input option
             break
         except ValueError:
-            print("Invalid input")
+            print("Invalid input or too big number. Try it again")
     return number
