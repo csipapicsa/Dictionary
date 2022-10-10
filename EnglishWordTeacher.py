@@ -91,6 +91,7 @@ def answeringF(dicT, goodAnswer, helP, question):
             # print(" ::: DICT :::: ", dicT)
             
 # decleare an empty viaraible for the wrong answers
+print("*** Update statistics sheet")
 wrongAnswersDict = {}
 goodAnswersDict = {}
 
@@ -104,3 +105,4 @@ for i in goodAnswersDict:
 
 # update the sheet
 stat.update([wordsStat.columns.values.tolist()] + wordsStat.values.tolist())
+print("*** Bye!")

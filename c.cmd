@@ -2,5 +2,5 @@ ECHO "### Wait..."
 D:
 cd DICTIONARY/Dictionary/
 
-python szotar2.py
+python EnglishWordTeacher.py
 timeout 20
