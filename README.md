@@ -21,7 +21,14 @@ In case of wrong answer:
 
 
 ### TODO:
+#### Soon
+  - Check whenever sound card is available 
+	- If is not, skip to use it
+  - Don't add the words to the teaching list, which has 6 good hit in a row
+  - Don't show the pandas append bullshit message in the end
+#### Later on   
   - After a help sentence arises add NOK to the statistics
   - Handle if the sheet is not available (no internet, make local copy, etc)
+	- Version control? Differencies between two dataframe? Local copy vs cloud. 
   
   tags: google sheet, python, dictionary, word teacher, learning
