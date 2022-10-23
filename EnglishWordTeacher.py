@@ -4,21 +4,21 @@ import importlib as r
 # get the sheets
 print("*** get the sheet")
 sheet = mm.googleDocReadIn()
-# user inputs - how many questions, how many possible answers
-print(" How many words? ")
-numberOfQuestions = mm.userInputValidator(100)
-print(" how many possible answers? ")
-numberWrongAnswers = mm.userInputValidator(100)
-print("*** making the quiz")
 records_df, wordsStat, words_array, meaning_array, stats_data, stat, help_array = mm.wordsSheet(sheet)
 # handle empty cells in meaning and help arrays
 meaning_array, help_array= mm.emptyCellsHandler(words_array, meaning_array, help_array)
 # get rid of known words
 daysInt = 62
 words_array, meaning_array, help_array, numbersQuiz = mm.deleteKnownWords(wordsStat, words_array, meaning_array, help_array, days=daysInt)
+# user inputs - how many questions, how many possible answers
+print(" How many words? ")
+numberOfQuestions = mm.userInputValidator(100)
+print(" how many possible answers? ")
+numberWrongAnswers = mm.userInputValidator(100)
+print("*** making the quiz")
+
 # make quiz
 quizQ, possibleWrongAnswers = mm.questions(words_array, meaning_array, help_array, numbersQuiz, length=numberOfQuestions)
-
 
 def quizF (quizQ, possibleWrongAnswers,numberWrongAnswers):
     for i in quizQ:
@@ -53,11 +53,11 @@ def mapAnswers(question, goodAnswer, helP, wrongAnswers, numberWrongAnswers):
     return None
 
 
-def goodAnswerDictWrite(question):
+def goodAnswerDictWrite(question, goodAnswer):
     print("Good answer! ")
-    print("--------------")
+    print(question, " : ",goodAnswer)
     goodAnswersDict[question] = int(mm.datetime.datetime.now().timestamp())
-    return 
+    return
 
 def goodAnswerChecker(dicT, ans, goodAnswer):
     if dicT[ans] == goodAnswer:
@@ -76,7 +76,7 @@ def answeringF(dicT, goodAnswer, helP, question):
     # answer
     ans = mm.userInputValidator(numberWrongAnswers+1)
     if goodAnswerChecker(dicT, ans, goodAnswer): #if the answer is good
-        goodAnswerDictWrite(question)
+        goodAnswerDictWrite(question, goodAnswer)
     else:
         # wrong answer, print help
         print("### Wrong answer, help: ", helP)
