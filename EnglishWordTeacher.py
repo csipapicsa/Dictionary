@@ -82,7 +82,7 @@ def answeringF(dicT, goodAnswer, helP, question):
         print("### Wrong answer, help: ", helP)
         ans = mm.userInputValidator(numberWrongAnswers+1)
         if goodAnswerChecker(dicT, ans, goodAnswer):
-            goodAnswerDictWrite(question)
+            goodAnswerDictWrite(question, goodAnswer)
         if goodAnswerChecker(dicT, ans, goodAnswer) == False:
             wrongAnswersDict[question] = int(mm.datetime.datetime.now().timestamp())
             print("Correct answer: ", goodAnswer)
