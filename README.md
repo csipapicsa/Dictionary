@@ -22,8 +22,6 @@ In case of wrong answer:
 
 ### TODO:
 #### Soon
-  - Check whenever sound card is available 
-	- If is not, skip to use it
   - Don't add the words to the teaching list, which has 6 good hit in a row
   - Don't show the pandas append bullshit message in the end
 #### Later on   

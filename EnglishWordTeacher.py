@@ -68,7 +68,11 @@ def goodAnswerChecker(dicT, ans, goodAnswer):
 def answeringF(dicT, goodAnswer, helP, question):
     print(question)
     # say it
-    mm.speak(question)
+    try:
+        mm.speak(question)
+    except:
+        print("*** the sound card is used by an another app")
+    
     # print(helP)
     # print the answers
     for i in dicT:
