@@ -71,7 +71,7 @@ def answeringF(dicT, goodAnswer, helP, question):
     try:
         mm.speak(question)
     except:
-        print("*** the sound card is used by an another app")
+        print("*** INFO: the sound card is used by an another app")
     
     # print(helP)
     # print the answers
@@ -95,12 +95,13 @@ def answeringF(dicT, goodAnswer, helP, question):
             # print(" ::: DICT :::: ", dicT)
             
 # decleare an empty viaraible for the wrong answers
-print("*** Update statistics sheet")
+
 wrongAnswersDict = {}
 goodAnswersDict = {}
 
 quizF(quizQ, possibleWrongAnswers, numberWrongAnswers)
 
+print("*** Update statistics sheet")
 # append wrong and good answers
 for i in wrongAnswersDict:
     wordsStat = wordsStat.append({'Word': i, "NOK":wrongAnswersDict[i], "OK":"" }, ignore_index=True)

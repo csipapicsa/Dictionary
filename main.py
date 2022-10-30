@@ -93,6 +93,8 @@ def emptyCellsHandler(words_array, meaning_array, help_array):
  
 def questions(words_array, meaning_array, help_array, numbersQuiz, length=1):
     # quizNumbers = random.choices(list(set(numbersQuiz)), k=length) # this is wrong, gives back duplicated values. 
+    # just for fun, random shuffle twice! 
+    random.shuffle(numbersQuiz)
     random.shuffle(numbersQuiz)
     quizNumbers = numbersQuiz[0:length]
     quizQ = []
@@ -114,6 +116,9 @@ def deleteKnownWords(wordsStat, words_array, meaning_array, help_array, days=31)
     wordStatDict = defaultdict(list)
     # we need a set to built up the default dictionary
     wordStatSet = set(wordsStat["Word"])
+    timestamp = datetime.datetime.now().timestamp()
+    last30Years = 9460800
+    numberOfGoodAnswersInaRow = 5
     for i in wordStatSet:
         wordStatDict[i] = []
     for i,row in wordsStat.iterrows():
@@ -131,13 +136,35 @@ def deleteKnownWords(wordsStat, words_array, meaning_array, help_array, days=31)
             None
     knownWords = []        
     # get rid of known words
-    # if the last three element average is older than now()+1 month, delete 
+    # if the last three element average is older than now()+2 month, delete it from the set 
+    #print(wordStatSet)
     for i in wordStatSet:
         # since the dates are continiously appended we dont have to sort them. 
         check = sum(wordStatDict[i][-3:])/3
-        if check+(31*24*3600)>datetime.datetime.now().timestamp():
+        #print(i)
+        if check+(62*24*3600)>timestamp:
             # print("Known word ## ", i)
             knownWords.append(i)
+            
+        # if the 
+        # var = wordStatDict[i]
+        #check = sum(wordStatDict[i][-5:])/5
+        
+        """
+        check = (sum(var[-numberOfGoodAnswersInaRow:]))/numberOfGoodAnswersInaRow
+        if i == "d":
+            print(check <  timestamp)
+            print(len(var[-numberOfGoodAnswersInaRow:]) >= numberOfGoodAnswersInaRow)
+            print(sum(wordStatDict[i][-numberOfGoodAnswersInaRow:]), check, timestamp, )
+        #check = mean(var[-numberOfGoodAnswersInaRow:])
+        if (len(var[-numberOfGoodAnswersInaRow:]) >= numberOfGoodAnswersInaRow) & (check <  timestamp):
+            print(i)
+            print(check >  timestamp)
+            print("*** WTFS ****")
+            print(sum(wordStatDict[i][-numberOfGoodAnswersInaRow:]), check, timestamp, )
+            """
+    
+    
             
     words_array_n, meaning_array_n, help_array_n = words_array.copy(), meaning_array.copy(), help_array.copy()
     numberOfKnownWords = 0
