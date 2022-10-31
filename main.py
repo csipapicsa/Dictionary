@@ -117,8 +117,8 @@ def deleteKnownWords(wordsStat, words_array, meaning_array, help_array, days=31)
     # we need a set to built up the default dictionary
     wordStatSet = set(wordsStat["Word"])
     timestamp = datetime.datetime.now().timestamp()
-    last30Years = 9460800
-    numberOfGoodAnswersInaRow = 5
+    aYear = 31536000 # 3600 * 24 * 365 * 1
+    numberOfGoodAnswersInaRow = 5 #used to check whenever a word is learned finally in the last 1 year
     for i in wordStatSet:
         wordStatDict[i] = []
     for i,row in wordsStat.iterrows():
@@ -139,30 +139,25 @@ def deleteKnownWords(wordsStat, words_array, meaning_array, help_array, days=31)
     # if the last three element average is older than now()+2 month, delete it from the set 
     #print(wordStatSet)
     for i in wordStatSet:
+        var = wordStatDict[i]
         # since the dates are continiously appended we dont have to sort them. 
-        check = sum(wordStatDict[i][-3:])/3
+        check = sum(var[-3:])/3
         #print(i)
-        if check+(62*24*3600)>timestamp:
+        if check+(62*24*3600)>timestamp: #two months
             # print("Known word ## ", i)
             knownWords.append(i)
-            
-        # if the 
-        # var = wordStatDict[i]
-        #check = sum(wordStatDict[i][-5:])/5
-        
-        """
-        check = (sum(var[-numberOfGoodAnswersInaRow:]))/numberOfGoodAnswersInaRow
-        if i == "d":
-            print(check <  timestamp)
+        # check 5 good answers in a row in the past 1 year
+        check = (sum(var[-numberOfGoodAnswersInaRow:]))/numberOfGoodAnswersInaRow # average
+        """if i == "d":
+            print(" d session")
+            print(check >  timestamp-last30Years)
             print(len(var[-numberOfGoodAnswersInaRow:]) >= numberOfGoodAnswersInaRow)
             print(sum(wordStatDict[i][-numberOfGoodAnswersInaRow:]), check, timestamp, )
-        #check = mean(var[-numberOfGoodAnswersInaRow:])
-        if (len(var[-numberOfGoodAnswersInaRow:]) >= numberOfGoodAnswersInaRow) & (check <  timestamp):
-            print(i)
-            print(check >  timestamp)
-            print("*** WTFS ****")
-            print(sum(wordStatDict[i][-numberOfGoodAnswersInaRow:]), check, timestamp, )
-            """
+        #check = mean(var[-numberOfGoodAnswersInaRow:])"""
+        if (check >  timestamp-aYear):
+            knownWords.append(i)
+        
+    #print(knownWords)
     
     
             

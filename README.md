@@ -12,17 +12,17 @@ In case of wrong answer:
 - the meaning of the word opens through collins dictionary
   - https://www.collinsdictionary.com/
   
-- Date of the good/wrong answers are recorded in the same google sheet (for todo)
+
 
 
 #### Other
 - It opens when computer is switched on
   - can be automatize for timeperiods (open every hours, etc)
+- Words which has 5 good answeres in a row in the past 1 year are interpreted as known words.
 
 
 ### TODO:
 #### Soon
-  - Don't add the words to the teaching list, which has 6 good hit in a row
   - Don't show the pandas append bullshit message in the end
 #### Later on   
   - After a help sentence arises add NOK to the statistics
