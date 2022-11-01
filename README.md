@@ -23,6 +23,7 @@ In case of wrong answer:
 
 ### TODO:
 #### Soon
+  - Possible answers in alphabetical ascending order (useful in case of big amount of possible answers)
   - Don't show the pandas append bullshit message in the end
 #### Later on   
   - After a help sentence arises add NOK to the statistics
