@@ -11,6 +11,7 @@ meaning_array, help_array= mm.emptyCellsHandler(words_array, meaning_array, help
 daysInt = 62
 words_array, meaning_array, help_array, numbersQuiz = mm.deleteKnownWords(wordsStat, words_array, meaning_array, help_array, days=daysInt)
 # user inputs - how many questions, how many possible answers
+print(" *** INFO: if you want to quit type 100 into the input field")
 print(" How many words? ")
 numberOfQuestions = mm.userInputValidator(100)
 print(" how many possible answers? ")

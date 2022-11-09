@@ -188,6 +188,8 @@ def userInputValidator(maxN):
             number = int(input())
             if number < 1 or number > maxN:
                 raise ValueError #this will send it to the print message and back to the input option
+            if number == 100:
+                exit()
             break
         except ValueError:
             print("Invalid input or too big number. Try it again")

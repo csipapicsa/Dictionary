@@ -23,6 +23,8 @@ In case of wrong answer:
 
 ### TODO:
 #### Soon
+  - NOK - OK dictionary update
+	- Since after a help pop-up the NOK date is not added
   - Possible answers in alphabetical ascending order (useful in case of big amount of possible answers)
   - Don't show the pandas append bullshit message in the end
 #### Later on   
