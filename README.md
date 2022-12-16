@@ -25,8 +25,12 @@ In case of wrong answer:
 #### Soon
   - NOK - OK dictionary update
 	- Since after a help pop-up the NOK date is not added
+  - Instead of random choice a probability based decission about the most propable unknown word
+	- take into consideration of prob of known/unknown and type of the word 
+  - Possible anwers: List of answers only from unknown words 
   - Possible answers in alphabetical ascending order (useful in case of big amount of possible answers)
   - Don't show the pandas append bullshit message in the end
+	- ilok writing 
 #### Later on   
   - After a help sentence arises add NOK to the statistics
   - Handle if the sheet is not available (no internet, make local copy, etc)

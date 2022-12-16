@@ -13,11 +13,14 @@ words_array, meaning_array, help_array, numbersQuiz = mm.deleteKnownWords(wordsS
 # user inputs - how many questions, how many possible answers
 print(" *** INFO: if you want to quit type 100 into the input field")
 print(" How many words? ")
-numberOfQuestions = mm.userInputValidator(100)
-print(" how many possible answers? ")
-numberWrongAnswers = mm.userInputValidator(100)
-print("*** making the quiz")
 
+# This part is hard coded now
+#numberOfQuestions = mm.userInputValidator(100)
+#print(" how many possible answers? ")
+#numberWrongAnswers = mm.userInputValidator(100)
+#print("*** making the quiz")
+
+numberOfQuestions, numberWrongAnswers = 3, 10
 # make quiz
 quizQ, possibleWrongAnswers = mm.questions(words_array, meaning_array, help_array, numbersQuiz, length=numberOfQuestions)
 
